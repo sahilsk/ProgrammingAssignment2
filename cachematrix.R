@@ -1,7 +1,6 @@
-## Put comments here that give an overall description of what your
-## functions do
-
-## Write a short comment describing this function
+## Method that will help us calculate inverse of a matrix fast by caching the result.
+# 'set' and 'get' are getter and setter for matrix
+# 'getinverse', and 'setinverse'are getter and setter for getting inverse of set matrix.
 
 makeCacheMatrix <- function(x = matrix()) {
   m <- NULL
@@ -10,7 +9,10 @@ makeCacheMatrix <- function(x = matrix()) {
     m <<- NULL
   }
   get <- function() x
-  setinverse <- function(mean) m <<- mean
+  
+  #Setter method for inverse
+  setinverse <- function(inverse) m <<- inverse
+  #Getter method for inverse
   getinverse <- function() m
   list(set = set, get = get,
        setinverse = setinverse,
@@ -19,6 +21,9 @@ makeCacheMatrix <- function(x = matrix()) {
  
 
 ## Write a short comment describing this function
+# Function return inverse value if already calculated.
+# Also, Function return null if inverse is not possible by calculating the determinent.
+# If determinent is 0, then inverse is not possible. So, inverse value return will be NULL
 
 cacheSolve <- function(x, ...) {
   ## Return a matrix that is the inverse of 'x'
